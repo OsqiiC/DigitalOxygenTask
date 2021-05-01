@@ -29,11 +29,11 @@ public class PlayerAttack : MonoBehaviour
         // Getting collider in attack area
         Collider2D attackedCollider = Physics2D.OverlapCircle(transform.position, attackRadius);
 
-        // If its enemy, finish him
-        if (attackedCollider.GetComponent<Enemy>() != null)
-        {
-            Enemy currentEnemy = attackedCollider.GetComponent<Enemy>();
+        Enemy currentEnemy = attackedCollider.GetComponent<Enemy>();
 
+        // If its enemy, finish him
+        if (currentEnemy != null)
+        {
             if (!currentEnemy.isDead) currentEnemy.DeathInput();
         }
     }
